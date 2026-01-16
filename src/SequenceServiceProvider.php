@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Marktic\Sequence;
 
 use ByTIC\PackageBase\BaseBootableServiceProvider;
-use Marktic\Sequence\Utility\SequenceModels;
 use Marktic\Sequence\Utility\PackageConfig;
 
 /**
@@ -26,7 +25,7 @@ class SequenceServiceProvider extends BaseBootableServiceProvider
 
     protected function translationsPath(): string
     {
-        return dirname(__DIR__).'/resources/lang/';
+        return dirname(__DIR__) . '/resources/lang/';
     }
 
     protected function registerCommands()
@@ -34,6 +33,7 @@ class SequenceServiceProvider extends BaseBootableServiceProvider
 //        $this->commands(
 //        );
     }
+
     public function boot(): void
     {
         parent::boot();

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Marktic\Sequence\Utility;
 
-use Marktic\Cms\CmsServiceProvider;
+use Marktic\Sequence\SequenceServiceProvider;
 use Nip\Utility\Traits\SingletonTrait;
 
 /**
@@ -14,11 +14,11 @@ class PackageConfig extends \ByTIC\PackageBase\Utility\PackageConfig
 {
     use SingletonTrait;
 
-    protected $name = CmsServiceProvider::NAME;
+    protected $name = SequenceServiceProvider::NAME;
 
     public static function configPath(): string
     {
-        return __DIR__ . '/../../config/mkt_cms.php';
+        return __DIR__ . '/../../config/mkt_sequence.php';
     }
 
     public static function tableName($name, $default = null)
@@ -37,17 +37,5 @@ class PackageConfig extends \ByTIC\PackageBase\Utility\PackageConfig
     public static function shouldRunMigrations(): bool
     {
         return false !== static::instance()->get('database.migrations', false);
-    }
-
-    public static function blocksDiscovery()
-    {
-        return static::instance()->get('blocks.discovery', []);
-    }
-
-    public static function siteRoles(): array
-    {
-        $roles = static::instance()->get('site_roles', []);
-
-        return $roles instanceof \Nip\Config\Config ? $roles->toArray() : (array) $roles;
     }
 }

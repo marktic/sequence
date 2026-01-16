@@ -1,0 +1,21 @@
+{
+  "name": "marktic-cms",
+  "version": "0.0.1",
+  "description": " ",
+  "private": true,
+  "author": "Gabriel Solomon",
+  "license": "proprietary",
+  "scripts": {
+    "dev": "yarn run development",
+    "development": "yarn encore dev",
+    "prod": "yarn run production",
+    "production": "yarn encore prod"
+  },
+  "dependencies": {
+    "sortablejs": "^1.15.6"
+  },
+  "devDependencies": {
+    "jgrowl": "^1.4"
+  },
+  "packageManager": "yarn@4.12.0"
+}

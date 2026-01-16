@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+use Phinx\Migration\AbstractMigration;
+
+final class CreateSequenceRangesTable extends AbstractMigration
+{
+    public function change(): void
+    {
+        // We disable the default ID to define an explicit BigInteger ID
+        $table = $this->table('sequence_ranges', [
+            'id' => false,
+            'primary_key' => 'id'
+        ]);
+
+        $table->addColumn('id', 'biginteger', ['identity' => true, 'signed' => false])
+            ->addColumn('tenant', 'string', ['limit' => 100])
+            ->addColumn('tenant_id', 'biginteger', ['signed' => false])
+
+            ->addColumn('number_start', 'biginteger', ['default' => null, 'null' => true, 'signed' => true])
+            ->addColumn('number_current', 'biginteger', ['default' => 0, 'null' => true, 'signed' => true])
+            ->addColumn('number_end', 'biginteger', ['default' => 0, 'null' => true, 'signed' => true])
+
+            ->addTimestamps()
+
+            // Indexes
+            ->addIndex(['tenant', 'tenant_id'])
+
+            ->addIndex(
+                ['tenant', 'tenant_id'],
+            )
+            ->create();
+    }
+}

@@ -6,7 +6,7 @@ use Marktic\Sequence\Utility\ViewHelper;
 
 trait AbstractSequenceControllerTrait
 {
-    protected function bootAbstractCmsControllerTrait()
+    protected function bootAbstractSequenceControllerTrait()
     {
         $this->after(
             function () {

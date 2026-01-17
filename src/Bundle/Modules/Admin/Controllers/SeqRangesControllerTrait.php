@@ -9,7 +9,6 @@ trait SeqRangesControllerTrait
 {
     use HasTenantControllerTrait;
 
-
     protected function getModelFormClass($model, $action = null): string
     {
         return DetailsForm::class;

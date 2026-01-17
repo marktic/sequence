@@ -9,7 +9,7 @@ use Nip\View\View;
  */
 class ViewHelper
 {
-    public const NAMESPACE = 'MktCMS';
+    public const NAMESPACE = 'MktSeq';
 
     /**
      * @param View $view
@@ -18,11 +18,5 @@ class ViewHelper
     {
         $view->addPath(PathsHelpers::viewsAdmin(), self::NAMESPACE);
         $view->addPath(PathsHelpers::viewsAdmin());
-    }
-
-    public static function registerFrontendPaths(View $view): void
-    {
-        $view->addPath(PathsHelpers::viewsFrontend(), self::NAMESPACE);
-        $view->addPath(PathsHelpers::viewsFrontend());
     }
 }

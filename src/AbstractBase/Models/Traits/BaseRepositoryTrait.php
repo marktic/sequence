@@ -6,21 +6,23 @@ namespace Marktic\Sequence\AbstractBase\Models\Traits;
 
 use ByTIC\Records\Behaviors\HasForms\HasFormsRecordsTrait;
 use Marktic\Sequence\AbstractBase\Models\Timestampable\TimestampableManagerTrait;
+use Nip\I18n\Translatable\HasTranslations;
 
 trait BaseRepositoryTrait
 {
     use HasFormsRecordsTrait;
     use TimestampableManagerTrait;
     use HasDatabaseConnectionTrait;
+    use HasTranslations;
 
     protected function initRelations()
     {
         parent::initRelations();
 
-        $this->initRelationsLoyalty();
+        $this->initRelationsSequence();
     }
 
-    protected function initRelationsLoyalty()
+    protected function initRelationsSequence()
     {
     }
 
@@ -31,5 +33,10 @@ trait BaseRepositoryTrait
         }
 
         return $this->getTable();
+    }
+
+    protected function getTranslateRoot()
+    {
+        return $this->getController();
     }
 }

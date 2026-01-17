@@ -16,7 +16,7 @@ $items = $seqLinks ?? $this->seqLinks;
     <tbody>
     <?php foreach ($items as $item): ?>
         <?php
-        $recordLink = $this->getLinkRecord();
+        $recordLink = $item->getLinkRecord();
         ?>
         <tr>
             <td>

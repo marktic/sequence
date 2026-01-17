@@ -8,6 +8,7 @@ use Marktic\Sequence\Bundle\Library\Form\FormModel;
 use Marktic\Sequence\Ranges\Models\SeqRange;
 use Marktic\Sequence\RangesLinks\Actions\Create\CreateSiteLink;
 use Marktic\Sequence\Utility\SequenceModels;
+use Nip\Records\Collections\Collection;
 
 /**
  * @method SeqRange getModel()
@@ -23,18 +24,20 @@ class LinksForm extends FormModel
 
         $this->setAttrib('id', 'mkt-sequence-seq-ranges-links-form');
         $this->addCheckboxGroup('linkables', SequenceModels::rangeLinks()->getLabel('title'), false);
+
+        $this->addButton('save', translator()->trans('submit'));
     }
 
-    public function setLinkables(array $linkables): static
+    public function setLinkables(array|Collection $linkables): static
     {
         $this->linkables = $linkables;
-        $this->populateLinkablesElement($linkables);
         return $this;
     }
 
     protected function getDataFromModel()
     {
         $this->seqLinks = $this->getModel()->getSeqLinks()->keyBy('link_id');
+        $this->populateLinkablesElement($this->linkables);
         $this->getElement('linkables')->setValue(
             $this->seqLinks->pluck('link_id')->toArray()
         );

@@ -2,21 +2,11 @@
 
 namespace Marktic\Sequence\Bundle\Modules\Admin\Controllers\Behaviours;
 
-use Marktic\Sequence\Base\Models\Filters\TenantFilter;
-use Marktic\Sequence\Bundle\Setup\SetupCms;
+use Marktic\Sequence\AbstractBase\Models\Filters\TenantFilter;
 use Nip\Records\Filters\Sessions\Session;
 
 trait HasTenantControllerTrait
 {
-    protected function bootAbstractCmsControllerTrait()
-    {
-        $this->before(
-            function () {
-                $action = SetupCms::for($this->getCmsTenantFromRequest())->handle();
-                $this->registerCmsViewPaths();
-            }
-        );
-    }
 
     public function tenant()
     {
@@ -26,7 +16,7 @@ trait HasTenantControllerTrait
     protected function getRequestFilters($session = null)
     {
         $request = $this->getRequest();
-        $request->setAttribute(TenantFilter::NAME, $this->getCmsTenantFromRequest());
+        $request->setAttribute(TenantFilter::NAME, $this->getSequenceTenantFromRequest());
         /** @var Session $filter */
         return parent::getRequestFilters($session);
     }
@@ -34,7 +24,7 @@ trait HasTenantControllerTrait
     /**
      * @return mixed
      */
-    protected function getCmsTenantFromRequest()
+    protected function getSequenceTenantFromRequest()
     {
         $tenantName = $this->getRequest()->get('tenant');
         return $this->checkForeignModelFromRequest($tenantName, ['tenant_id', 'id']);

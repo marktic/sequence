@@ -7,10 +7,12 @@ namespace Marktic\Sequence\AbstractBase\Models\Traits;
 use ByTIC\Records\Behaviors\HasForms\HasFormsRecordsTrait;
 use Marktic\Sequence\AbstractBase\Models\Timestampable\TimestampableManagerTrait;
 use Nip\I18n\Translatable\HasTranslations;
+use Nip\Records\Filters\Records\HasFiltersRecordsTrait;
 
 trait BaseRepositoryTrait
 {
     use HasFormsRecordsTrait;
+    use HasFiltersRecordsTrait;
     use TimestampableManagerTrait;
     use HasDatabaseConnectionTrait;
     use HasTranslations;

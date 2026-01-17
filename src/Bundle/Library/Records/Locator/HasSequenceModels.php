@@ -11,7 +11,7 @@ trait HasSequenceModels
 {
     /**
      */
-    public static function cmsSites(): SeqRanges|RecordManager
+    public static function seqRanges(): SeqRanges|RecordManager
     {
         return SequenceModels::ranges();
     }
@@ -19,7 +19,7 @@ trait HasSequenceModels
     /**
      * @return SeqRangesLinks|RecordManager
      */
-    public static function cmsMenus(): SeqRangesLinks|RecordManager
+    public static function seqRangeLinks(): SeqRangesLinks|RecordManager
     {
         return SequenceModels::rangeLinks();
     }

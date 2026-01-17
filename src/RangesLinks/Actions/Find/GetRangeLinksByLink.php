@@ -6,9 +6,9 @@ namespace Marktic\Sequence\RangesLinks\Actions\Find;
 
 use Bytic\Actions\Behaviours\Entities\FindRecords;
 use Bytic\Actions\Behaviours\HasSubject\HasSubject;
-use Marktic\Cms\SiteLinks\Actions\AbstractAction;
+use Marktic\Sequence\RangesLinks\Actions\AbstractAction;
 
-class GetSiteLinksByLink extends AbstractAction
+class GetRangeLinksByLink extends AbstractAction
 {
     use FindRecords;
     use HasSubject;

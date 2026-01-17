@@ -20,7 +20,7 @@ final class CreateSequenceLinksTable extends AbstractMigration
             ->addTimestamps()
             ->addIndex(['link_type', 'link_id'])
             ->addIndex(['range_id'])
-            ->addForeignKey('range_id', 'sequence_ranges', 'id', [
+            ->addForeignKey('range_id', 'mkt_sequence_ranges', 'id', [
                 'delete' => 'CASCADE',
                 'update' => 'NO_ACTION'
             ])

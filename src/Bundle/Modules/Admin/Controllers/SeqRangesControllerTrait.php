@@ -24,7 +24,7 @@ trait SeqRangesControllerTrait
 
         $item = $this->getModelFromRequest();
         $this->payload()->with([
-            'seqLinks' => $item->getSeqRangesLinks(),
+            'seqLinks' => $item->getSeqLinks(),
         ]);
     }
 }

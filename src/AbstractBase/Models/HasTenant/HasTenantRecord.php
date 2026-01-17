@@ -12,8 +12,8 @@ use Nip\Records\Record;
  */
 trait HasTenantRecord
 {
-    public string|int $tenant_id;
-    public string $tenant;
+    public string|int|null $tenant_id;
+    public string|null $tenant;
 
     /**
      * @param Record $record

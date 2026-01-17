@@ -33,7 +33,8 @@ class DetailsForm extends FormModel
 
     protected function initializeNumbers()
     {
-        $this->addNumber('start_number', SequenceModels::ranges()->getLabel('field.number_start'), true);
+        $this->addNumber('number_start', SequenceModels::ranges()->getLabel('field.number_start'), true);
+        $this->addNumber('number_length', SequenceModels::ranges()->getLabel('field.number_length'), true);
     }
 
     protected function initializePattern()

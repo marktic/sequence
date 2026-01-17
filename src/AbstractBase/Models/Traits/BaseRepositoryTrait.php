@@ -8,11 +8,13 @@ use ByTIC\Records\Behaviors\HasForms\HasFormsRecordsTrait;
 use Marktic\Sequence\AbstractBase\Models\Timestampable\TimestampableManagerTrait;
 use Nip\I18n\Translatable\HasTranslations;
 use Nip\Records\Filters\Records\HasFiltersRecordsTrait;
+use Nip\Records\Traits\Relations\HasRelationsRecordsTrait;
 
 trait BaseRepositoryTrait
 {
     use HasFormsRecordsTrait;
     use HasFiltersRecordsTrait;
+    use HasRelationsRecordsTrait;
     use TimestampableManagerTrait;
     use HasDatabaseConnectionTrait;
     use HasTranslations;

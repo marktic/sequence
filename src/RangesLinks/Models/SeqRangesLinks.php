@@ -13,7 +13,7 @@ use Marktic\Sequence\Utility\PackageConfig;
  */
 class SeqRangesLinks extends SequenceRepository
 {
-    public const TABLE = 'mkt_sequence_ranges_links';
+    public const TABLE = 'mkt_sequence_links';
     public const CONTROLLER = 'mkt_sequence-ranges_links';
 
     public function initRelationsSequence()

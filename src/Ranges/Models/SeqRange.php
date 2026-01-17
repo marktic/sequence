@@ -4,20 +4,24 @@ declare(strict_types=1);
 
 namespace Marktic\Sequence\Ranges\Models;
 
+use Marktic\Sequence\AbstractBase\Models\HasTenant\HasTenantRecord;
 use Marktic\Sequence\AbstractBase\Models\SequenceRecord;
 use Marktic\Sequence\RangesLinks\Models\SeqRangesLink;
 
 /**
  * Class SequenceRange
  * @package Marktic\Sequence\Ranges\Models
- * @method SeqRangesLink[] getSeqRangesLinks()
+ * @method SeqRangesLink[] getSeqLinks()
  */
 class SeqRange extends SequenceRecord
 {
+    use HasTenantRecord;
+
     public $name;
     public $number_start;
     public $number_end;
     public $number_current;
+    public int|string|null $number_length;
 
     public function getName()
     {
@@ -54,9 +58,14 @@ class SeqRange extends SequenceRecord
         return $this;
     }
 
+    public function getNumberLength()
+    {
+        return (int)$this->number_length;
+    }
+
     public function getPattern(): string
     {
-        $digits = str_pad('0', $this->number_length, '0', STR_PAD_LEFT);
+        $digits = str_pad('0', $this->getNumberLength(), '0', STR_PAD_LEFT);
         return $this->prefix . $digits . $this->suffix;
     }
 }

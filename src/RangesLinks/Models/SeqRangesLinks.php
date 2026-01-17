@@ -16,6 +16,11 @@ class SeqRangesLinks extends SequenceRepository
     public const TABLE = 'mkt_sequence_ranges_links';
     public const CONTROLLER = 'mkt_sequence-ranges_links';
 
+    public function initRelationsSequence()
+    {
+        $this->morphTo('LinkRecord', ['morphPrefix' => 'link']);
+    }
+
     public function getTable(): string
     {
         return PackageConfig::tableName(static::TABLE, static::TABLE);

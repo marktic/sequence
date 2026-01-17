@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Marktic\Sequence\RangesLinks\Models;
 
 use Marktic\Sequence\AbstractBase\Models\SequenceRecord;
+use Nip\Records\AbstractModels\Record;
 
 /**
  * Class SequenceRanges
  * @package Marktic\Sequence\Ranges\Models
+ * @method Record getLinkRecord
  */
 class SeqRangesLink extends SequenceRecord
 {

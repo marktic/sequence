@@ -10,6 +10,7 @@ use Nip\View\View;
 class ViewHelper
 {
     public const NAMESPACE = 'MktCMS';
+
     /**
      * @param View $view
      */

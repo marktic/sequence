@@ -13,8 +13,8 @@ use Marktic\Sequence\AbstractBase\Models\SequenceRepository;
  */
 class SeqRanges extends SequenceRepository
 {
-    public const TABLE = 'sequence_ranges';
-    public const CONTROLLER = 'sequence-ranges';
+    public const TABLE = 'mkt_sequence_ranges';
+    public const CONTROLLER = 'mkt_sequence-ranges';
 
     public function getTable(): string
     {

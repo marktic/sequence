@@ -27,9 +27,4 @@ class PathsHelpers
     {
         return static::modules( '/Admin/views');
     }
-
-    public static function viewsFrontend(): string
-    {
-        return static::modules( '/Frontend/views');
-    }
 }

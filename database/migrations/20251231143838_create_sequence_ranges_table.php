@@ -9,7 +9,7 @@ final class CreateSequenceRangesTable extends AbstractMigration
     public function change(): void
     {
         // We disable the default ID to define an explicit BigInteger ID
-        $table = $this->table('sequence_ranges', [
+        $table = $this->table('mkt_sequence_ranges', [
             'id' => false,
             'primary_key' => 'id'
         ]);
@@ -18,6 +18,7 @@ final class CreateSequenceRangesTable extends AbstractMigration
             ->addColumn('tenant', 'string', ['limit' => 100])
             ->addColumn('tenant_id', 'biginteger', ['signed' => false])
 
+            ->addColumn('name', 'string', ['limit' => 255])
             ->addColumn('number_start', 'biginteger', ['default' => null, 'null' => true, 'signed' => true])
             ->addColumn('number_current', 'biginteger', ['default' => 0, 'null' => true, 'signed' => true])
             ->addColumn('number_end', 'biginteger', ['default' => 0, 'null' => true, 'signed' => true])

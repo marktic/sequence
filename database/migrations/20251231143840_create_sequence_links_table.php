@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class CreateSequenceTransactionsTable extends AbstractMigration
+final class CreateSequenceLinksTable extends AbstractMigration
 {
     public function change(): void
     {
-        $table = $this->table('sequence_links', [
+        $table = $this->table('mkt_sequence_links', [
             'id' => false,
             'primary_key' => 'id'
         ]);

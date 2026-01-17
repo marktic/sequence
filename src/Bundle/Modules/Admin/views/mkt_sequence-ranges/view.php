@@ -10,6 +10,7 @@
             <?= $this->load('/mkt_sequence-ranges/modules/panels/item-details'); ?>
         </div>
         <div class="col-md-6">
+            <?= $this->load('/mkt_sequence-ranges/modules/panels/item-links'); ?>
         </div>
     </div>
 </div>

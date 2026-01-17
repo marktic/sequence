@@ -7,11 +7,12 @@ namespace Marktic\Sequence\Ranges\Models;
 use Marktic\Sequence\AbstractBase\Models\HasTenant\HasTenantRecord;
 use Marktic\Sequence\AbstractBase\Models\SequenceRecord;
 use Marktic\Sequence\RangesLinks\Models\SeqRangesLink;
+use Nip\Records\Collections\Associated;
 
 /**
  * Class SequenceRange
  * @package Marktic\Sequence\Ranges\Models
- * @method SeqRangesLink[] getSeqLinks()
+ * @method SeqRangesLink[]|Associated getSeqLinks()
  */
 class SeqRange extends SequenceRecord
 {

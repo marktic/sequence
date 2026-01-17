@@ -15,5 +15,7 @@ return [
 
 
     'mkt_sequence-ranges.messages.add' => 'Intervalul de numere a fost adăugat cu succes.',
+    'mkt_sequence-ranges.messages.edit' => 'Intervalul de numere a fost actualizat cu succes.',
+    'mkt_sequence-ranges.messages.delete' => 'Intervalul de numere a fost șters cu succes.',
     'mkt_sequence-ranges.messages.dnx' => 'Nu există intervale de numere definite.',
 ];

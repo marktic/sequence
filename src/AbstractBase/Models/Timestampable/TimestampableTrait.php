@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Marktic\Loyalty\AbstractBase\Models\Timestampable;
+namespace Marktic\Sequence\AbstractBase\Models\Timestampable;
 
 trait TimestampableTrait
 {

@@ -16,7 +16,7 @@ trait HasRangeRepositoryTrait
 
     protected function initRelationsSequence(): void
     {
-        $this-initRelationsSequenceRange();
+        $this->initRelationsSequenceRange();
     }
 
     /**

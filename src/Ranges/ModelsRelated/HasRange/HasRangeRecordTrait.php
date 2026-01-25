@@ -5,7 +5,7 @@ namespace Marktic\Sequence\Ranges\ModelsRelated\HasRange;
 use Marktic\Sequence\Ranges\Models\SeqRange;
 
 /**
- * @method SeqRange getCmsPageSection()
+ * @method SeqRange getSeqRange()
  */
 trait HasRangeRecordTrait
 {

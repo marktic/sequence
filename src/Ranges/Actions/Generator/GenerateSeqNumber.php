@@ -7,20 +7,16 @@ namespace Marktic\Sequence\Ranges\Actions\Generator;
 use Bytic\Actions\Behaviours\HasSubject\HasSubject;
 use Marktic\Sequence\Ranges\Actions\AbstractAction;
 use Marktic\Sequence\Ranges\Models\SeqRange;
-use Marktic\Sequence\RangesLinks\Actions\Find\GetRangeLinksByLink;
 
+/**
+ * @method SeqRange getSubject()
+ */
 class GenerateSeqNumber extends AbstractAction
 {
     use HasSubject;
 
-    protected SeqRange $range;
-
     public function nextNumber(): ?string
     {
-        $this->range = GetRangeLinksByLink::for($this->getSubject())->fetch();
-        if ($this->range === null) {
-            return null;
-        }
         return $this->generate();
     }
 
@@ -33,23 +29,25 @@ class GenerateSeqNumber extends AbstractAction
 
     protected function getNextNumber(): ?int
     {
-        $numberCurrent = $this->range->getNumberCurrent();
+        $range = $this->getSubject();
+        $numberCurrent = $range->getNumberCurrent();
         if ($numberCurrent === null) {
-            $nextNumber = $this->range->getNumberStart();
+            $nextNumber = $range->getNumberStart();
         } else {
             $nextNumber = $numberCurrent + 1;
         }
-        $this->range->setNumberCurrent($nextNumber);
-        $this->range->save();
+        $range->setNumberCurrent($nextNumber);
+        $range->save();
         return $nextNumber;
     }
 
     protected function formatNumber(int $nextNumber)
     {
-        $requiredDigits = $this->range->number_length;
+        $range = $this->getSubject();
+        $requiredDigits = $range->getNumberLength();
         $numberStr = str_pad((string)$nextNumber, $requiredDigits, '0', STR_PAD_LEFT);
-        $prefix = $this->range->prefix ?? '';
-        $suffix = $this->range->suffix ?? '';
+        $prefix = $range->prefix ?? '';
+        $suffix = $range->suffix ?? '';
         return $prefix.$numberStr.$suffix;
     }
 }

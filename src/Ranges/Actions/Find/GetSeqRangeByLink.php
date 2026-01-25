@@ -23,6 +23,6 @@ class GetSeqRangeByLink extends AbstractAction
         }
         /** @var SeqRangesLink $link */
         $link = $links->first();
-        return $link->getRange();
+        return $link->getSeqRange();
     }
 }
